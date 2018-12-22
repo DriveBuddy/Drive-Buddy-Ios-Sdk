@@ -149,5 +149,4 @@ Pod::Spec.new do |s|
   s.dependency "SwiftProtobuf", "~> 1.0"
   s.dependency "Alamofire", "~> 4.7"
   s.dependency "Sentry",  "~> 4.1.0"
-  s.dependency 'AlamofireActivityLogger',  "~> 2.5.0"
 end
