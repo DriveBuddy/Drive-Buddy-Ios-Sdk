@@ -89,8 +89,8 @@ public class DriveBuddy: NSObject{
         DriveBuddyCore.deauthenticate()
     }
     
-    public class func getAuthenticationStatus()->DriveBuddyAuthenticationStatus{
-        return DriveBuddyCore.getAuthenticationStatus() as DriveBuddyAuthenticationStatus
+    public class func getAuthenticationStatus(_ callback:@escaping (_ authenticationStatus:DriveBuddyCoreAuthenticationStatus)->Void){
+        DriveBuddyCore.getAuthenticationStatus(callback)
     }
     
     public class func enable(automaticDrivingDetection auto:Bool=true, _ callback:@escaping (_ success:Bool)->Void){
