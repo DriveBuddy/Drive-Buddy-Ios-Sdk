@@ -133,9 +133,9 @@ Tries to authenticate DriveBuddy SDK with the given key and the preffered userna
 
 Removes existing authentication credentials from DriveBuddy SDK. SDK will no longer be able to connect to DriveBuddy Servers.
 
-- `getAuthenticationStatus()`
+- `getAuthenticationStatus(_ callback: @escaping (_ authenticated:Bool)->Void)`
 
-Returns current authentication status of DriveBuddy SDK as a DriveBuddyAuthenticationStatus object. Check DriveBuddyAuthenticationStatus for detailed information.
+Result of the attempt is the first argument of the callback method. Result is the current authentication status of DriveBuddy SDK and is returned as a DriveBuddyAuthenticationStatus object. Check DriveBuddyAuthenticationStatus for detailed information.
 
 
 - `enable(automaticDrivingDetection:Bool = true, callback:@escaping (_ success:Bool) -> Void)`
