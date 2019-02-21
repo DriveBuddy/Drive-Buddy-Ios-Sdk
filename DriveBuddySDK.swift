@@ -126,9 +126,6 @@ public class DriveBuddy: NSObject{
         DriveBuddyCore.set(delegate: delegate)
     }
     
-    public class func uploadTestFile(line: String, _ callback:@escaping (_ success:Bool)->Void){
-        DriveBuddyCore.uploadTestFile(line: line, callback)
-    }
 
 }
 
