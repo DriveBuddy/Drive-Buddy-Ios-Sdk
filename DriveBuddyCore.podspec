@@ -84,7 +84,7 @@ Pod::Spec.new do |s|
   #s.source       = { :git => "http://EXAMPLE/DriveBuddySDK.git", :tag => "#{s.version}" }
   #s.source = { :git => "http://drivebuddyapp.com/SDK.git", :tag =>"master" }
 
-  s.source = { :git => 'https://github.com/DriveBuddy/Drive-Buddy-Ios-Sdk' }#:path
+  s.source = { :path => "." }#:path
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -101,7 +101,7 @@ Pod::Spec.new do |s|
   # s.public_header_files = "Classes/**/*.h"
 
 
- s.vendored_frameworks = 'DriveBuddyCore.framework'
+ s.vendored_frameworks = 'DerivedData/DriveBuddyCore/Build/Products/Release-iphoneos/DriveBuddyCore.framework'
  #s.vendored_frameworks = 'DerivedData/Build/Products/Release-iphonesimulator/DriveBuddySDK.framework'
 
 

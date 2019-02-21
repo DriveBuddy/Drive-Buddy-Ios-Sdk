@@ -30,7 +30,7 @@ public class DriveBuddy: NSObject{
 
     public class func authenticate(withSDKKey key:String, username: String, firstName:String?=nil,lastName:String?=nil,email:String?=nil,phone:String?=nil, _ callback: @escaping (_ authenticated:Bool)->Void){
     }
-    public class func deauthenticate(){
+    public class func deauthenticate(_ callback:@escaping () -> ()){
     }
     public class func getAuthenticationStatus()->DriveBuddyAuthenticationStatus{
         return DriveBuddyAuthenticationStatus.NotAuthenticated
@@ -39,7 +39,7 @@ public class DriveBuddy: NSObject{
     public class func enable(automaticDrivingDetection auto:Bool=true, _ callback:@escaping (_ success:Bool)->Void){
     }
 
-    public class func disable(){
+    public class func disable(_ callback: @escaping () -> ()){
     }
 
     public class func restore(){
@@ -85,8 +85,8 @@ public class DriveBuddy: NSObject{
         DriveBuddyCore.authenticate(withSDKKey: key, username: username, firstName: firstName, lastName: lastName, email: email, phone: phone, callback)
     }
     
-    public class func deauthenticate(){
-        DriveBuddyCore.deauthenticate()
+    public class func deauthenticate(_ callback:@escaping () -> ()){
+        DriveBuddyCore.deauthenticate(callback: callback)
     }
     
     public class func getAuthenticationStatus(_ callback:@escaping (_ authenticationStatus:DriveBuddyCoreAuthenticationStatus)->Void){
@@ -97,8 +97,8 @@ public class DriveBuddy: NSObject{
         DriveBuddyCore.enable(automaticDrivingDetection:auto, callback)
     }
     
-    public class func disable(){
-        DriveBuddyCore.disable()
+    public class func disable(_ callback: @escaping () -> ()){
+        DriveBuddyCore.disable(callback)
     }
     
     public class func restore(){
