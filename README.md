@@ -1,1 +1,1 @@
-For documentation, please visit: https://docs.drivebuddy.xyz/ios/
+For documentation, please visit: https://docs.drivebuddyapp.com/ios/
