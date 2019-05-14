@@ -45,7 +45,7 @@ public class DriveBuddy: NSObject{
     public class func restore(){
     }
 
-    public class func startDrivingActivity(){
+    public class func startDrivingActivity(_ callback: @escaping (_ success: Bool) -> ()){
     }
 
     public class func stopDrivingActivity(){
@@ -105,8 +105,8 @@ public class DriveBuddy: NSObject{
         DriveBuddyCore.restore()
     }
     
-    public class func startDrivingActivity(){
-        DriveBuddyCore.startDrivingActivity()
+    public class func startDrivingActivity(_ callback: @escaping (_ success: Bool) -> ()){
+        DriveBuddyCore.startDrivingActivity(callback)
     }
     
     public class func stopDrivingActivity(){
