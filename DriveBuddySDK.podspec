@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
   #
 
   # s.author             = { "Husnu Sener" => "husnutech@gmail.com" }
-  # Or just: 
+  # Or just:
   s.author    = "Drive Buddy"
   # s.authors            = { "Husnu Sener" => "husnutech@gmail.com" }
   # s.social_media_url   = "http://twitter.com/Husnu Sener"
@@ -83,8 +83,8 @@ Pod::Spec.new do |s|
 
   #s.source       = { :git => "http://EXAMPLE/DriveBuddySDK.git", :tag => "#{s.version}" }
   #s.source = { :git => "http://drivebuddyapp.com/SDK.git", :tag =>"master" }
-  
-  s.source = { :path => "." }#:path
+
+  s.source = { :git => 'https://github.com/DriveBuddy/Drive-Buddy-Ios-Sdk' }#:path
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "DriveBuddySDK.swift" 
+  s.source_files  = "DriveBuddySDK.swift"
   #"Classes", "Classes/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
@@ -142,7 +142,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  #s.dependency "SwiftCompressor", "~> 0.2.1" 
+  #s.dependency "SwiftCompressor", "~> 0.2.1"
   #s.dependency "AZSClient", "~> 0.2.4"
   #s.dependency "ReachabilitySwift", "~> 3"
   #s.dependency "CocoaLumberjack/Swift", "~> 3.2.0"
