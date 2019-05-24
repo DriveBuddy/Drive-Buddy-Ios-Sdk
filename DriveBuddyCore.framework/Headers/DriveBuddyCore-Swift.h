@@ -188,6 +188,29 @@ SWIFT_CLASS("_TtC14DriveBuddyCore14DriveBuddyCore")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, DriveBuddyCoreAuthenticationStatus, closed) {
+  DriveBuddyCoreAuthenticationStatusNotAuthenticated = 0,
+  DriveBuddyCoreAuthenticationStatusPendingAuthentication = 1,
+  DriveBuddyCoreAuthenticationStatusAuthenticated = 2,
+};
+
+
+SWIFT_PROTOCOL("_TtP14DriveBuddyCore22DriveBuddyCoreDelegate_")
+@protocol DriveBuddyCoreDelegate
+- (void)driveBuddyNeedsLocationAlwaysUsePermission;
+- (void)driveBuddyNeedsMotionPermission;
+- (void)driveBuddyAuthenticationFailed;
+@end
+
+
+SWIFT_CLASS("_TtC14DriveBuddyCore18DriveBuddyDebugger")
+@interface DriveBuddyDebugger : NSObject
++ (NSString * _Nonnull)getDriverID SWIFT_WARN_UNUSED_RESULT;
++ (void)setConsolLogsActive;
++ (void)setConsolLogsInactive;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 #if __has_attribute(external_source_symbol)

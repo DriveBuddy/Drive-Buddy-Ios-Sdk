@@ -11,7 +11,7 @@ import Foundation
 #if (arch(i386) || arch(x86_64))
 
 
-public protocol DriveBuddyDelegate{
+@objc public protocol DriveBuddyDelegate{
     func driveBuddyNeedsLocationAlwaysUsePermission()
     func driveBuddyNeedsMotionPermission()
 }
@@ -25,104 +25,104 @@ public enum DriveBuddyAuthenticationStatus{
 
 public class DriveBuddy: NSObject{
     public static let SDKVersion="0.0.0"
-    public class func isAuthenticated(_ callback: @escaping (_ authenticated:Bool)->Void){
+    @objc public class func isAuthenticated(_ callback: @escaping (_ authenticated:Bool)->Void){
     }
 
-    public class func authenticate(withSDKKey key:String, username: String, firstName:String?=nil,lastName:String?=nil,email:String?=nil,phone:String?=nil, _ callback: @escaping (_ authenticated:Bool)->Void){
+    @objc public class func authenticate(withSDKKey key:String, username: String, firstName:String?=nil,lastName:String?=nil,email:String?=nil,phone:String?=nil, _ callback: @escaping (_ authenticated:Bool)->Void){
     }
-    public class func deauthenticate(_ callback:@escaping () -> ()){
+    @objc public class func deauthenticate(_ callback:@escaping () -> ()){
     }
-    public class func getAuthenticationStatus()->DriveBuddyAuthenticationStatus{
+    @objc public class func getAuthenticationStatus()->DriveBuddyAuthenticationStatus{
         return DriveBuddyAuthenticationStatus.NotAuthenticated
     }
 
-    public class func enable(automaticDrivingDetection auto:Bool=true, _ callback:@escaping (_ success:Bool)->Void){
+    @objc public class func enable(automaticDrivingDetection auto:Bool=true, _ callback:@escaping (_ success:Bool)->Void){
     }
 
-    public class func disable(_ callback: @escaping () -> ()){
+    @objc public class func disable(_ callback: @escaping () -> ()){
     }
 
-    public class func restore(){
+    @objc public class func restore(){
     }
 
-    public class func startDrivingActivity(_ callback: @escaping (_ success: Bool) -> ()){
+    @objc public class func startDrivingActivity(_ callback: @escaping (_ success: Bool) -> ()){
     }
 
-    public class func stopDrivingActivity(){
+    @objc public class func stopDrivingActivity(){
     }
 
-    public class func getDrivingActivityStatus(_ callback: @escaping (_ activeDrivingActivity:Bool)->Void){
+    @objc public class func getDrivingActivityStatus(_ callback: @escaping (_ activeDrivingActivity:Bool)->Void){
     }
 
-    public class func uploadData(_ callback:@escaping (_ anyFileUploadTry:Bool)->Void){
+    @objc public class func uploadData(_ callback:@escaping (_ anyFileUploadTry:Bool)->Void){
     }
 
-    public class func set(delegate:DriveBuddyDelegate?){
+    @objc public class func set(delegate:DriveBuddyDelegate?){
     }
 }
 
 #else
 import DriveBuddyCore
 
-    public protocol DriveBuddyDelegate:DriveBuddyCoreDelegate{
+    @objc public protocol DriveBuddyDelegate:DriveBuddyCoreDelegate{
         
     }
     public typealias DriveBuddyAuthenticationStatus=DriveBuddyCoreAuthenticationStatus
     
 
 public class DriveBuddy: NSObject{
-    public static var SDKVersion:String{
+    @objc public static var SDKVersion:String{
         get{
             return DriveBuddyCore.SDKVersion
         }
     }
     
-    public class func isAuthenticated(_ callback: @escaping (_ authenticated:Bool)->Void){
+    @objc public class func isAuthenticated(_ callback: @escaping (_ authenticated:Bool)->Void){
         DriveBuddyCore.isAuthenticated(callback)
     }
     
-    public class func authenticate(withSDKKey key:String, username: String, firstName:String?=nil,lastName:String?=nil,email:String?=nil,phone:String?=nil, _ callback: @escaping (_ authenticated:Bool)->Void){
+    @objc public class func authenticate(withSDKKey key:String, username: String, firstName:String?=nil,lastName:String?=nil,email:String?=nil,phone:String?=nil, _ callback: @escaping (_ authenticated:Bool)->Void){
         DriveBuddyCore.authenticate(withSDKKey: key, username: username, firstName: firstName, lastName: lastName, email: email, phone: phone, callback)
     }
     
-    public class func deauthenticate(_ callback:@escaping () -> ()){
+    @objc public class func deauthenticate(_ callback:@escaping () -> ()){
         DriveBuddyCore.deauthenticate(callback: callback)
     }
     
-    public class func getAuthenticationStatus(_ callback:@escaping (_ authenticationStatus:DriveBuddyCoreAuthenticationStatus)->Void){
+    @objc public class func getAuthenticationStatus(_ callback:@escaping (_ authenticationStatus:DriveBuddyCoreAuthenticationStatus)->Void){
         DriveBuddyCore.getAuthenticationStatus(callback)
     }
     
-    public class func enable(automaticDrivingDetection auto:Bool=true, _ callback:@escaping (_ success:Bool)->Void){
+    @objc public class func enable(automaticDrivingDetection auto:Bool=true, _ callback:@escaping (_ success:Bool)->Void){
         DriveBuddyCore.enable(automaticDrivingDetection:auto, callback)
     }
     
-    public class func disable(_ callback: @escaping () -> ()){
+    @objc public class func disable(_ callback: @escaping () -> ()){
         DriveBuddyCore.disable(callback)
     }
     
-    public class func restore(){
+    @objc public class func restore(){
         DriveBuddyCore.restore()
     }
     
-    public class func startDrivingActivity(_ callback: @escaping (_ success: Bool) -> ()){
+    @objc public class func startDrivingActivity(_ callback: @escaping (_ success: Bool) -> ()){
         DriveBuddyCore.startDrivingActivity(callback)
     }
     
-    public class func stopDrivingActivity(){
+    @objc public class func stopDrivingActivity(){
         DriveBuddyCore.stopDrivingActivity()
     }
     
-    public class func getDrivingActivityStatus(_ callback: @escaping (_ activeDrivingActivity:Bool)->Void){
+    @objc public class func getDrivingActivityStatus(_ callback: @escaping (_ activeDrivingActivity:Bool)->Void){
         DriveBuddyCore.getDrivingActivityStatus(callback)
     }
     
-    public class func uploadData(_ callback:@escaping (_ anyFileUploadTry:Bool)->Void){
+    @objc public class func uploadData(_ callback:@escaping (_ anyFileUploadTry:Bool)->Void){
         DriveBuddyCore.uploadData(callback)
     }
     
     
-    public class func set(delegate:DriveBuddyDelegate?){
+    @objc public class func set(delegate:DriveBuddyDelegate?){
         DriveBuddyCore.set(delegate: delegate)
     }
     
