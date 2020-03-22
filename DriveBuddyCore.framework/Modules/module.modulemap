@@ -1,4 +1,11 @@
 framework module DriveBuddyCore {
+  umbrella header "DriveBuddyCore.h"
+
+  export *
+  module * { export * }
+}
+
+module DriveBuddyCore.Swift {
     header "DriveBuddyCore-Swift.h"
     requires objc
 }
