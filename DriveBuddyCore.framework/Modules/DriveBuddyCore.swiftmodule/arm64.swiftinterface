@@ -1,0 +1,120 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 effective-4.2 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name DriveBuddyCore
+import AZSClient
+import Alamofire
+import CocoaLumberjack
+import Compression
+import CoreData
+import CoreLocation
+import CoreMotion
+@_exported import DriveBuddyCore
+import Foundation
+import ReachabilitySwift
+import Sentry
+import Swift
+import SwiftCompressor
+import SwiftProtobuf
+import SystemConfiguration
+import UIKit
+extension String : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum DriveBuddyDebugEvent {
+  case DrivingBeginDetected(message: Swift.String)
+  case DrivingEndDetected(message: Swift.String)
+  case WifiDetected(message: Swift.String)
+  case Terminated(message: Swift.String)
+  case Suspended(message: Swift.String)
+  case Resumed(message: Swift.String)
+  case DrivingEvent(message: Swift.String)
+  case Generic(message: Swift.String)
+  public var info: Swift.String {
+    get
+  }
+  public var type: Swift.String {
+    get
+  }
+}
+public protocol DriveBuddyDebugMessageReceiver : AnyObject {
+  func driveBuddyDebugLog(from: Swift.String, message: Swift.String)
+  func driveBuddyDebugVerbose(from: Swift.String, message: Swift.String)
+  func driveBuddyDebugEvent(event: DriveBuddyCore.DriveBuddyDebugEvent)
+}
+public enum DebugMode {
+  case ForceDrivingMode
+  case DisableRegionMonitoring
+  case DisableCrashFiltering
+  case DisableCrashEvaluation
+  public static func == (a: DriveBuddyCore.DebugMode, b: DriveBuddyCore.DebugMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc public class DriveBuddyDebugger : ObjectiveC.NSObject {
+  public class func setSentry()
+  public class func uploadTestFile(line: Swift.String, _ callback: @escaping (Swift.Bool) -> Swift.Void)
+  @objc public class func getDriverID() -> Swift.String
+  @objc public class func setConsolLogsActive()
+  @objc public class func setConsolLogsInactive()
+  public class func register(forDebugMessagesTo observer: DriveBuddyCore.DriveBuddyDebugMessageReceiver)
+  public class func useDarkLord()
+  public class func useMastermind()
+  public class func startForceDriving()
+  public class func stopForceDriving()
+  public class func preventRegionMonitoring()
+  public class func restoreRegionMonitoring()
+  public class func preventCrashFiltering()
+  public class func restoreCrashFiltering()
+  public class func preventCrashEvaluation()
+  public class func restoreCrashEvaluation()
+  public class func forceSleep()
+  public class func logVerboseMessages(enabled: Swift.Bool = false)
+  public class func logXCodeTerminal()
+  public class func useDocumentsAsRoot(enabled: Swift.Bool = true)
+  public class func includeDocumentsAtRoot(enabled: Swift.Bool = true)
+  public class func includeEverythingInLogsFolder(enabled: Swift.Bool = true)
+  public class func uploadFiles(paths: [Swift.String], _ callback: @escaping () -> Swift.Void)
+  public class func userInfo(email: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol DriveBuddyCoreDelegate {
+  @objc func driveBuddyNeedsLocationAlwaysUsePermission()
+  @objc func driveBuddyNeedsMotionPermission()
+  @objc func driveBuddyAuthenticationFailed()
+}
+@objc public enum DriveBuddyCoreAuthenticationStatus : Swift.Int, Swift.RawRepresentable {
+  public typealias RawValue = Swift.String
+  case NotAuthenticated
+  case PendingAuthentication
+  case Authenticated
+  public var rawValue: DriveBuddyCore.DriveBuddyCoreAuthenticationStatus.RawValue {
+    get
+  }
+  public init?(rawValue: DriveBuddyCore.DriveBuddyCoreAuthenticationStatus.RawValue)
+}
+@objc public class DriveBuddyCore : ObjectiveC.NSObject {
+  public static let SDKVersion: Swift.String
+  public class func isAuthenticated(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  public class func authenticate(withSDKKey key: Swift.String, username: Swift.String, firstName: Swift.String? = nil, lastName: Swift.String? = nil, email: Swift.String? = nil, phone: Swift.String? = nil, _ callback: @escaping (Swift.Bool) -> Swift.Void)
+  public class func deauthenticate(callback: @escaping () -> ())
+  public class func getAuthenticationStatus(_ callback: @escaping (DriveBuddyCore.DriveBuddyCoreAuthenticationStatus) -> Swift.Void)
+  public class func enable(automaticDrivingDetection auto: Swift.Bool = true, _ callback: @escaping (Swift.Bool) -> Swift.Void)
+  public class func disable(_ callback: @escaping () -> ())
+  public class func restore()
+  public class func startDrivingActivity(_ callback: @escaping (Swift.Bool) -> ())
+  public class func stopDrivingActivity()
+  public class func getDrivingActivityStatus(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  public class func uploadData(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  public class func set(delegate: DriveBuddyCore.DriveBuddyCoreDelegate?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension DriveBuddyCore.DebugMode : Swift.Equatable {}
+extension DriveBuddyCore.DebugMode : Swift.Hashable {}
+extension DriveBuddyCore.DriveBuddyCoreAuthenticationStatus : Swift.Equatable {}
+extension DriveBuddyCore.DriveBuddyCoreAuthenticationStatus : Swift.Hashable {}
